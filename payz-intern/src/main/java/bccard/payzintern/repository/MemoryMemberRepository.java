@@ -1,9 +1,12 @@
 package bccard.payzintern.repository;
 
 import bccard.payzintern.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+// @Repository 붙여서 스프링 컨테이너에 등록
+// @Repository
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();

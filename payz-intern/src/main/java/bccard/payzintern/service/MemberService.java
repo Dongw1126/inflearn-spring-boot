@@ -2,15 +2,22 @@ package bccard.payzintern.service;
 
 import bccard.payzintern.domain.Member;
 import bccard.payzintern.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
+// @Service 어노테이션 붙여서 -> 스프링 컨테이너에 등록
+// @Service
 public class MemberService {
     // 회원 저장할 리포지토리
     private final MemberRepository memberRepository;
 
     // MemberRepository를 외부에서 넣어줌
+    // MemberRepository가 필요하면 @AutoWired로 스프링 컨테이너가 넣어주게 (의존성 주입)
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
