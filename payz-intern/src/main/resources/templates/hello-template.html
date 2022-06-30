@@ -1,0 +1,7 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <!-- 서버없이 html 열면 태그안에 들어있는게 보임 -->
+        <!-- 서버가 돌면 타임리프 엔진이 th:text로 들어온 값으로 치환해줌 -->
+        <p th:text="'hello ' + ${name}">hello! empty</p>
+    </body>
+</html>
