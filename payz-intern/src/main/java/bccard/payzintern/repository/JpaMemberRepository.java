@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class JpaMemberRepository implements MemberRepository {
-    // JPA는 EntityManager라는 걸로 동작 (스프링 부트가 자동으로 생성해서 주입)
+    // JPA는 EntityManager라는 걸로 동작
     private final EntityManager em;
 
     public JpaMemberRepository(EntityManager em) {
