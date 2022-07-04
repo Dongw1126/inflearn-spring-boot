@@ -4,6 +4,7 @@ import bccard.payzintern.domain.Member;
 import bccard.payzintern.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +12,8 @@ import java.util.Optional;
 
 // @Service 어노테이션 붙여서 -> 스프링 컨테이너에 등록
 // @Service
+// JPA 쓸땐 @Transactional 써줘야함 -> 모든 변경이 @Transactional 안에서 실행되어야함
+@Transactional
 public class MemberService {
     // 회원 저장할 리포지토리
     private final MemberRepository memberRepository;
@@ -22,7 +25,7 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    // 회원 가입
+    /** 회원 가입 */
     public Long join(Member member) {
         // 같은 이름 허용 X
         // 중복 회원 검증
@@ -40,12 +43,12 @@ public class MemberService {
             });
     }
 
-    // 전체 회원 조회
+    /** 전체 회원 조회 */
     public List<Member> findMember() {
         return memberRepository.findAll();
     }
 
-    // id로 조회
+    /** id로 조회 */
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
