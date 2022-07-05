@@ -61,7 +61,8 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
 
     @Override
     public List<Member> findAll() {
-        return null;
+        List<Member> result = jdbcTemplate.query("select * from member", memberRowMapper());
+        return result;
     }
     
     private RowMapper<Member> memberRowMapper() {
@@ -70,7 +71,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
              Member member = new Member();
              member.setId(rs.getLong("id"));
              member.setName(rs.getString("name"));
-             return  member;
+             return member;
         }; 
     }
 }
